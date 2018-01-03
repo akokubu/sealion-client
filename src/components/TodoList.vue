@@ -1,7 +1,7 @@
 <template>
   <div> 
-    <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
-    <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+    <p class="tasks">Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
+    <p class="tasks">Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
     <todo v-for="todo in todos" v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-bind:todo="todo" v-bind:key="todo.id" :todo.sync="todo"></todo>
     <create-todo v-on:add-todo="addTodo"></create-todo>
   </div>
@@ -57,4 +57,7 @@ export default {
 </script>
 
 <style>
+p.tasks {
+  text-align: center;
+}
 </style>
